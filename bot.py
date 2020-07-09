@@ -40,6 +40,6 @@ if __name__ == "__main__" :
       try:
         thumb = message.reply_to_message.text
         os.environ['DEF_THUMB_NAIL_VID_S'] = thumb
-       except:
+      except:
             message.reply("Error")
     app.run()
