@@ -109,7 +109,7 @@ async def youtube_dl_call_back(bot, update):
     tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id)
     if not os.path.isdir(tmp_directory_for_each_user):
         os.makedirs(tmp_directory_for_each_user)
-    download_directory = tmp_directory_for_each_user + "/" + "custom_file_name"
+    download_directory = tmp_directory_for_each_user + "/" + custom_file_name
     command_to_exec = []
     if tg_send_type == "audio":
         command_to_exec = [
@@ -299,7 +299,7 @@ async def youtube_dl_call_back(bot, update):
                 await bot.send_video(
                     chat_id=update.message.chat.id,
                     video=download_directory,
-                    caption=description,
+                    caption=custom_file_name,
                     parse_mode="HTML",
                     duration=duration,
                     width=width,
