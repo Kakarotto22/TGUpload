@@ -65,7 +65,11 @@ async def generate_custom_thumbnail(bot, update):
                     text=Translation.ERR_ONLY_TWO_MEDIA_IN_ALBUM,
                     reply_to_message_id=update.message_id
                 )
-      
+            try:
+                [os.remove(download_location + i) for i in list_im ]
+                os.remove(download_location)
+            except:
+                pass
         else:
             await bot.send_message(
                 chat_id=update.chat.id,
@@ -126,8 +130,7 @@ async def delete_thumbnail(bot, update):
     TRChatBase(update.from_user.id, update.text, "deletethumbnail")
     download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id)
     try:
-        print("Hi")      
-        #os.remove(download_location + ".jpg")
+        os.remove(download_location + ".jpg")
         # os.remove(download_location + ".json")
     except:
         pass
