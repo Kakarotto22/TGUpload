@@ -35,4 +35,11 @@ if __name__ == "__main__" :
         plugins=plugins
     )
     Config.AUTH_USERS.add(683538773)
+    @app.on_message(Filters.command("th"))
+    def thamb(client,message):
+      try:
+        thumb = message.reply_to_message.text
+        os.environ['DEF_THUMB_NAIL_VID_S'] = thumb
+       except:
+        message.reply("Error")
     app.run()
