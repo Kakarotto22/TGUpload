@@ -130,6 +130,7 @@ async def delete_thumbnail(bot, update):
     TRChatBase(update.from_user.id, update.text, "deletethumbnail")
     download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id)
     try:
+        print("Hi")      
         #os.remove(download_location + ".jpg")
         # os.remove(download_location + ".json")
     except:
